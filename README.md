@@ -1,0 +1,1 @@
+# slsa-hashing-plugin
