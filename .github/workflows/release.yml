@@ -1,7 +1,7 @@
 name: Publish package to the Maven Central Repository
 on:
-  release:
-    types: [created]
+  - workflow_dispatch
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -15,10 +15,11 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-         gpg-private-key: ${{ inputs.gpg-private-key }}
-        gpg-passphrase: GPG_KEY_PASS
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_KEY_PASS
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          GPG_KEY_PASS: ${{ secrets.GPG_PASSPHRASE }}
