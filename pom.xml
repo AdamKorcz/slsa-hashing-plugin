@@ -9,7 +9,8 @@
     <version>0.0.1</version>
  
     <name>Jarfile Hashing Maven Mojo</name>
-    <url>http://maven.apache.org</url>
+    <description>Plugin used for SLSA-github-generator action</description>
+    <url>https://github.com/AdamKorcz/slsa-hashing-plugin</url>
  
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
